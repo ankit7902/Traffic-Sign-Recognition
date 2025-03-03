@@ -1,6 +1,7 @@
 # Traffic-Sign-Recognition
 <br>
 This is a Traffic Sign Recognition System where users can upload traffic sign images and get predictions on what the sign means. The app is developed using HTML, CSS, and JavaScript for a seamless user experience and features dark mode, drag-and-drop file upload, and a responsive navigation menu.
+<br>
 
 Features
 <br>
