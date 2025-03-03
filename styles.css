@@ -1,19 +1,21 @@
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     background: rgb(0, 101, 130);
     color: rgb(255, 255, 255);
     text-align: center;
     margin: 0;
     padding: 0;
-    overflow: hidden
+    overflow-x: hidden;
 }
+
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -21,19 +23,19 @@ body {
     background-color: #333;
     padding: 15px 20px;
     width: 100%;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;  
-
+    z-index: 1000;
 }
+
 .logo {
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-
+/* Navbar Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -55,6 +57,7 @@ body {
     color: #f0a500;
 }
 
+/* Hamburger Menu */
 .menu-toggle {
     display: none;
     font-size: 2rem;
@@ -63,9 +66,11 @@ body {
     color: white;
     cursor: pointer;
 }
+
+/* Responsive Navbar */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block; 
+        display: block;
     }
 
     .nav-links {
@@ -83,6 +88,10 @@ body {
         z-index: 999;
     }
 
+    .nav-links.active {
+        display: flex;
+    }
+
     .nav-links li {
         padding: 10px 0;
     }
@@ -91,21 +100,13 @@ body {
         display: block;
         width: 100%;
     }
-
-    .nav-links.active {
-        display: flex; 
-    }
 }
 
-
-.container {
-    padding-top: 80px; 
-}
-
+/* Main Container */
 .container {
     width: 90%;
     max-width: 500px;
-    margin: 50px auto;
+    margin: 80px auto 50px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 20px;
@@ -113,11 +114,15 @@ body {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    font-size: 26px;
-    margin-bottom: 15px;
+/* Responsive Container */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
 }
 
+/* Upload Section */
 .upload-section {
     display: flex;
     justify-content: center;
@@ -144,6 +149,8 @@ h1 {
 input[type="file"] {
     display: none;
 }
+
+/* Image Preview */
 .image-preview {
     display: flex;
     justify-content: center;
@@ -159,6 +166,20 @@ img {
     border: 2px solid #fff;
     display: none;
 }
+
+/* Responsive Image */
+@media (max-width: 600px) {
+    img {
+        max-height: 200px;
+    }
+}
+
+img.show {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Buttons */
 button {
     background: #ffcc00;
     color: #333;
@@ -170,6 +191,15 @@ button {
     transition: background 0.3s ease;
     margin-top: 15px;
 }
+
+/* Responsive Button */
+@media (max-width: 600px) {
+    button {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}
+
 button:hover {
     background: #bb9901;
 }
@@ -178,6 +208,8 @@ button:disabled {
     background-color: gray;
     cursor: not-allowed;
 }
+
+/* Loading Button Effect */
 button.loading {
     position: relative;
     pointer-events: none;
@@ -194,6 +226,8 @@ button.loading::after {
     animation: spin 1s linear infinite;
     margin-left: 10px;
 }
+
+/* Prediction Result */
 #predictionResult {
     font-size: 18px;
     margin-top: 15px;
@@ -208,10 +242,51 @@ button.loading::after {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Hidden Elements */
 .hidden {
-    display: none;
+    display: none !important;
 }
 
+/* Drag & Drop */
+.drop-area {
+    border: 2px dashed #fff;
+    padding: 20px;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 300px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Responsive Drop Area */
+@media (max-width: 600px) {
+    .drop-area {
+        width: 90%;
+    }
+}
+
+.drop-area:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #222;
+    color: #fff;
+}
+
+/* Canvas */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -223,11 +298,6 @@ button.loading::after {
     }
 }
 
-img.show {
-    display: block;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -236,37 +306,198 @@ img.show {
         transform: rotate(360deg);
     }
 }
-.drop-area {
-    border: 2px dashed #fff;
-    padding: 20px;
-    margin: 10px auto;
-    width: 80%;
-    max-width: 300px;
+
+
+#webcam {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.drop-area:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-button.loading::after {
-    content: " ⏳";
-    animation: blink 1s infinite alternate;
+#webcamButton {
+    background: #007bff;
+    color: white;
 }
 
-@keyframes blink {
-    from { opacity: 1; }
-    to { opacity: 0.5; }
+#captureButton {
+    background: #28a745;
+    color: white;
 }
-.dark-mode {
-    background: #222;
-    color: #fff;
+
+#stopWebcamButton {
+    background: #dc3545;
+    color: white;
 }
+.documentation {
+    padding: 60px 20px;
+    background: rgb(0, 101, 130);
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.documentation h2 {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+.documentation h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #007bff;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+.doc-content {
+    max-width: 900px;
+    margin: auto;
+    text-align: left;
+}
+
+.doc-content article {
+    background: rgba(255, 255, 255, 0.8); /* Glassmorphism effect */
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doc-content article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.doc-content h3 {
+    color: #007bff;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.doc-content p{
+    color: black;
+}
+.doc-content ul, 
+.doc-content ol {
+    padding-left: 25px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.doc-content li {
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.doc-content li:hover {
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+    .doc-content article {
+        padding: 15px;
+    }
+
+    .documentation h2 {
+        font-size: 2rem;
+    }
+
+    .doc-content h3 {
+        font-size: 1.3rem;
+    }
+}
+.webcam-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden; /* Prevents content overflow */
+    padding: 10px;
+}
+
+#webcam {
+    width: 100%;
+    max-width: 100%; /* Ensures the webcam fits inside the container */
+    border-radius: 10px;
+    border: 2px solid #fff;
+    margin-top: 10px;
+    object-fit: cover;
+}
+
+/* Ensure canvas fits within the container */
 canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1; 
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Fix for buttons */
+.webcam-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.webcam-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#webcamButton {
+    background: #007bff;
+    color: white;
+}
+
+#captureButton {
+    background: #28a745;
+    color: white;
+}
+
+#stopWebcamButton {
+    background: #dc3545;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    #webcam {
+        max-height: 250px;
+    }
+
+    canvas {
+        max-width: 100%;
+    }
 }

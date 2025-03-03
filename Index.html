@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traffic Sign Recognition</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <nav class="navbar">
@@ -18,10 +19,12 @@
             <li><a href="#about">About</a></li>
         </ul>
     </nav>
+    
     <div class="container">
+        
         <button id="themeToggle">🌙 Dark Mode</button>
 
-        <h1>🚦 Traffic Sign Recognition 🚗</h1>
+        <h1>🚦 Traffic Sign Recognition </h1>
         
         <div class="upload-section">
             <label for="imageUpload" class="upload-label">
@@ -41,10 +44,54 @@
             <p>📥 Drag & Drop Image Here</p>
             <input type="file" id="imageUpload" accept="image/*" hidden>
         </div>
-        
-        
+        <div class="webcam-container">
+            <button id="webcamButton">📷 Start Webcam</button>
+            <button id="captureButton" class="hidden">📸 Capture Image</button>
+            <button id="stopWebcamButton" class="hidden">❌ Stop Webcam</button>
+            
+            <video id="webcam" class="hidden" autoplay></video>
+            <canvas id="canvas" class="hidden"></canvas>
+        </div>
     </div>
+    <section id="documentation" class="documentation">
+        <h2>📖 Documentation</h2>
+        
+        <div class="doc-content">
+            <article>
+                <h3>🔹 Overview</h3>
+                <p>This project enables traffic sign recognition using an AI-powered model. Users can upload an image or use a live webcam to identify signs.</p>
+            </article>
+    
+            <article>
+                <h3>📌 Features</h3>
+                <ul>
+                    <li>Upload an image for traffic sign detection</li>
+                    <li>Live webcam sign recognition</li>
+                    <li>Dark mode support</li>
+                    <li>Drag & Drop image upload</li>
+                    <li>Responsive UI for mobile & desktop</li>
+                </ul>
+            </article>
+    
+            <article>
+                <h3>🛠️ How to Use</h3>
+                <ol>
+                    <li>Click <strong>"Upload Traffic Sign"</strong> to select an image.</li>
+                    <li>Or, click <strong>"Start Webcam"</strong> to capture a live image.</li>
+                    <li>Press <strong>"Predict Sign"</strong> to identify the traffic sign.</li>
+                    <li>The system will display the recognized traffic sign.</li>
+                </ol>
+            </article>
+        </div>
+    </section>
     <canvas id="matrixCanvas"></canvas>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="Webcam.js"> </script>
+    <script src="navbar.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="imageUpload.js" defer></script>
+    <script src="dragDrop.js" defer></script>
+    <script src="prediction.js" defer></script>
+
 </body>
 </html>
