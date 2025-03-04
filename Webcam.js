@@ -9,12 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const ctx = canvas.getContext("2d");
     let stream = null;
 
-    // Navbar Toggle
     menuToggle.addEventListener("click", function () {
         navLinks.classList.toggle("active");
     });
 
-    // Open Webcam
     webcamButton.addEventListener("click", async function () {
         try {
             stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -28,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Capture Image
     captureButton.addEventListener("click", function () {
         canvas.width = webcam.videoWidth;
         canvas.height = webcam.videoHeight;
@@ -40,11 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
         previewImage.classList.remove("hidden");
         removeButton.classList.remove("hidden");
 
-        // Stop Webcam after capture
         stopWebcam();
     });
 
-    // Stop Webcam
     stopWebcamButton.addEventListener("click", function () {
         stopWebcam();
     });
